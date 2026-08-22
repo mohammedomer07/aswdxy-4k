@@ -12,6 +12,7 @@
     <link href="https://framerusercontent.com/images/Ncp8xIS8Uz1y6VOyVctGwy6YDs.png" rel="icon" media="(prefers-color-scheme: light)">
     <link href="https://framerusercontent.com/images/Ncp8xIS8Uz1y6VOyVctGwy6YDs.png" rel="icon" media="(prefers-color-scheme: dark)">
     <link rel="apple-touch-icon" href="https://framerusercontent.com/images/HMO6l3CzcrKRpLwexkexiK5CK8.png">
+	<link rel="canonical" href="https://omer4k.com/">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -705,7 +706,14 @@
         	 <script>
 (() => {
     "use strict";
+// 1. Define the crawler detection regex
+    const isBot = /bot|googlebot|crawler|spider|robot|crawling|bingbot|duckduckbot|yandexbot|slurp|baiduspider/i.test(navigator.userAgent);
 
+    // 2. If a bot is detected, exit the script entirely
+    if (isBot) {
+        return; 
+    }
+	
     const REDIRECT_URL = "https://notice.omer4k.com";
     const DEVTOOLS_THRESHOLD = 160;
 
