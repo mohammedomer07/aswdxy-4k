@@ -1,0 +1,135 @@
+<!-- Minecraft Music Button -->
+<audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" class="minecraft-music-btn" type="button">
+    <span class="music-icon">♫</span>
+    <span id="musicText">Music</span>
+</button>
+
+<style>
+    .minecraft-music-btn {
+        position: fixed;
+        left: 24px;
+        bottom: 24px;
+        z-index: 9999;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        min-width: 145px;
+        height: 48px;
+        padding: 0 18px;
+
+        border: 2px solid #171717;
+        border-radius: 8px;
+
+        background: #242424;
+        color: #ffffff;
+
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 4px 0 #111111,
+            0 8px 18px rgba(0, 0, 0, 0.25);
+
+        transition:
+            transform 0.12s ease,
+            box-shadow 0.12s ease,
+            background 0.12s ease;
+    }
+
+    .minecraft-music-btn:hover {
+        background: #303030;
+        transform: translateY(-2px);
+        box-shadow:
+            0 6px 0 #111111,
+            0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .minecraft-music-btn:active {
+        transform: translateY(3px);
+        box-shadow:
+            0 1px 0 #111111,
+            0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .music-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 25px;
+        height: 25px;
+
+        background: #ffffff;
+        color: #171717;
+
+        border-radius: 4px;
+
+        font-size: 17px;
+        line-height: 1;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+        .minecraft-music-btn {
+            left: 14px;
+            bottom: 14px;
+
+            min-width: 48px;
+            width: 48px;
+            height: 48px;
+
+            padding: 0;
+            justify-content: center;
+        }
+
+        .minecraft-music-btn #musicText {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    const music = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicText = document.getElementById("musicText");
+
+    music.volume = 0.70;
+
+    function updateMusicButton() {
+        if (music.paused) {
+            musicText.textContent = "Music";
+        } else {
+            musicText.textContent = "Playing";
+        }
+    }
+
+    // Attempt autoplay immediately
+    music.play()
+        .then(() => {
+            updateMusicButton();
+        })
+        .catch(() => {
+            updateMusicButton();
+        });
+
+    // Toggle music
+    musicToggle.addEventListener("click", () => {
+        if (music.paused) {
+            music.play().then(() => {
+                updateMusicButton();
+            });
+        } else {
+            music.pause();
+            updateMusicButton();
+        }
+    });
+</script>
