@@ -1,0 +1,248 @@
+<script>
+(function () {
+    "use strict";
+
+    /* ==========================================
+       OMER4K 18+ AGE GATE
+       Self-contained — paste anywhere in <head>
+       ========================================== */
+
+    function createAgeGate() {
+
+        /* Prevent duplicate gates */
+        if (document.getElementById("omer4k-age-gate")) return;
+
+        /* ---------- CSS ---------- */
+
+        var style = document.createElement("style");
+
+        style.id = "omer4k-age-gate-style";
+
+        style.textContent = `
+            #omer4k-age-gate {
+                position: fixed;
+                inset: 0;
+                z-index: 2147483647;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #000;
+                color: #fff;
+                padding: 30px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #omer4k-age-gate-box {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            #omer4k-age-gate-title {
+                margin: 0 0 8px;
+                color: #e00000;
+                font-size: 56px;
+                font-weight: 700;
+                line-height: 1;
+                letter-spacing: -2px;
+            }
+
+            #omer4k-age-gate-text {
+                margin: 0 0 20px;
+                color: #fff;
+                font-size: 15px;
+                line-height: 1.55;
+            }
+
+            #omer4k-age-gate-secondary {
+                color: #aaa;
+            }
+
+            #omer4k-age-gate a {
+                color: #168ee5;
+                text-decoration: underline;
+            }
+
+            #omer4k-age-gate-buttons {
+                display: flex;
+                gap: 10px;
+                margin-top: 25px;
+            }
+
+            #omer4k-age-gate button {
+                flex: 1;
+                height: 58px;
+                border: 0;
+                border-radius: 30px;
+                padding: 0 25px;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: opacity .15s ease,
+                            transform .15s ease;
+            }
+
+            #omer4k-age-gate button:hover {
+                opacity: .9;
+                transform: translateY(-1px);
+            }
+
+            #omer4k-age-gate button:active {
+                transform: translateY(0);
+            }
+
+            #omer4k-age-continue {
+                background: #0795dc;
+                color: #fff;
+            }
+
+            #omer4k-age-leave {
+                background: #1c293b;
+                color: #fff;
+            }
+
+            @media (max-width: 600px) {
+
+                #omer4k-age-gate {
+                    align-items: flex-start;
+                    padding: 55px 24px 30px;
+                    overflow-y: auto;
+                }
+
+                #omer4k-age-gate-title {
+                    font-size: 48px;
+                }
+
+                #omer4k-age-gate-text {
+                    font-size: 14px;
+                }
+
+                #omer4k-age-gate button {
+                    height: 56px;
+                    padding: 0 15px;
+                }
+            }
+        `;
+
+        document.head.appendChild(style);
+
+
+        /* ---------- HTML ---------- */
+
+        var gate = document.createElement("div");
+
+        gate.id = "omer4k-age-gate";
+
+        gate.innerHTML = `
+            <div id="omer4k-age-gate-box">
+
+                <h1 id="omer4k-age-gate-title">18+</h1>
+
+                <p id="omer4k-age-gate-text">
+                    This site contains sexually explicit material.
+                </p>
+
+                <p id="omer4k-age-gate-text">
+                    This website contains content intended for adults only.
+                    If you are under 18 years of age, or below the legal age
+                    of majority in your location, you are not authorized to
+                    access this website or its contents.
+                    By entering this website, you confirm that you are at
+                    least 18 years old or have reached the age of majority
+                    in your location and agree to adhere to the
+                    <a href="/terms.html">Terms &amp; Conditions</a>.
+                </p>
+
+                <p id="omer4k-age-gate-secondary" class="omer4k-age-gate-text">
+                    By clicking the "Continue" button and entering this
+                    website, you acknowledge and agree to the statements
+                    above and certify that you are an adult.
+                    <a href="/terms.html">Terms &amp; Conditions</a>
+                    and
+                    <a href="/privacy.html">Privacy Policy</a>.
+                </p>
+
+                <div id="omer4k-age-gate-buttons">
+
+                    <button
+                        type="button"
+                        id="omer4k-age-continue">
+                        Continue
+                    </button>
+
+                    <button
+                        type="button"
+                        id="omer4k-age-leave">
+                        Leave
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        document.body.appendChild(gate);
+
+
+        /* ---------- CONTINUE ---------- */
+
+        document
+            .getElementById("omer4k-age-continue")
+            .addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                /*
+                 * ONLY REMOVE THE OVERLAY.
+                 *
+                 * No:
+                 * - reload
+                 * - redirect
+                 * - localStorage
+                 * - sessionStorage
+                 * - cookies
+                 * - navigation
+                 */
+
+                gate.remove();
+
+                var gateStyle =
+                    document.getElementById("omer4k-age-gate-style");
+
+                if (gateStyle) {
+                    gateStyle.remove();
+                }
+            });
+
+
+        /* ---------- LEAVE ---------- */
+
+        document
+            .getElementById("omer4k-age-leave")
+            .addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                window.location.href = "https://omer4k.com";
+            });
+    }
+
+
+    /* ==========================================
+       START
+       ========================================== */
+
+    if (document.readyState === "loading") {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            createAgeGate
+        );
+
+    } else {
+
+        createAgeGate();
+
+    }
+
+})();
+</script>
