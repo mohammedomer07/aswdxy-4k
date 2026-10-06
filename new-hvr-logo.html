@@ -1,0 +1,1124 @@
+
+    <script>
+(function () {
+    const isBot = /bot|googlebot|crawler|spider|robot|crawling|bingbot|duckduckbot|yandexbot|slurp|baiduspider/i
+        .test(navigator.userAgent);
+
+    if (isBot) {
+        return;
+    }
+
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://omer4k.com/",
+  "name": "Mohammed Omer",
+  "alternateName": "OMER4K",
+  "jobTitle": [
+    "Founder & CEO", 
+    "Digital Strategist", 
+    "Web Developer", 
+    "Psychologist"
+  ],
+  "url": "https://omer4k.com",
+  "sameAs": [
+    "https://sphereroot.com",
+    "https://instagram.com/_mromer_/"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "@id": "https://sphereroot.com/#org"
+  },
+  "honorificSuffix": "M.Sc., DPsych., PGDPC., BCA."
+}
+</script>
+	<meta name="robots" content="max-image-preview:large">
+  <link rel="canonical" href="https://omer4k.com/"><meta property="og:url" content="https://omer4k.com/">
+ 	
+<script>
+(function () {
+
+
+  function initOmerSocialWidget() {
+
+
+    const LINKS = {
+      whatsapp: "https://wa.link/j6u5ng",
+      youtube: "https://www.youtube.com/@mohammedomer4k",
+      instagram: "https://instagram.com/_mromer_",
+      website: "https://sphereroot.com/",
+      connect: "https://bio.sphereroot.com"
+    };
+
+
+
+    if (document.getElementById("omer-social-widget")) {
+      return;
+    }
+
+
+    
+    const style = document.createElement("style");
+
+    style.id = "omer-social-widget-style";
+
+    style.textContent = `
+
+      /* =====================================================
+         WIDGET CONTAINER
+         ===================================================== */
+
+      #omer-social-widget {
+
+        position: fixed !important;
+
+        right: 24px !important;
+        bottom: 24px !important;
+
+        width: auto !important;
+        height: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: transparent !important;
+        background-color: transparent !important;
+
+        border: 0 !important;
+
+        box-shadow: none !important;
+
+        filter: none !important;
+
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        z-index: 2147483647 !important;
+
+        pointer-events: none !important;
+
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Arial,
+          sans-serif !important;
+      }
+
+
+      /* =====================================================
+         INNER CONTAINER
+         ===================================================== */
+
+      #omer-social-widget .omer-widget-inner {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: flex-end !important;
+
+        gap: 10px !important;
+
+        width: auto !important;
+        height: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: transparent !important;
+        background-color: transparent !important;
+
+        border: none !important;
+
+        box-shadow: none !important;
+
+        filter: none !important;
+
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        pointer-events: none !important;
+      }
+
+
+      /* =====================================================
+         ALL BUTTONS
+         ===================================================== */
+
+      #omer-social-widget .omer-btn {
+
+        width: 48px !important;
+        height: 48px !important;
+
+        min-width: 48px !important;
+        min-height: 48px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: none !important;
+        outline: none !important;
+
+        border-radius: 50% !important;
+
+        display: flex !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        position: relative !important;
+
+        cursor: pointer !important;
+
+        text-decoration: none !important;
+
+        pointer-events: auto !important;
+
+        box-shadow:
+          0 7px 20px rgba(0, 0, 0, 0.14) !important;
+
+        transition:
+          transform .25s ease,
+          opacity .25s ease,
+          background-color .25s ease !important;
+
+        -webkit-tap-highlight-color: transparent !important;
+      }
+
+
+      /* Normal hover for menu buttons */
+
+      #omer-social-widget .omer-menu-btn:hover {
+
+        transform: scale(1.06) !important;
+      }
+
+
+      /* SVG */
+
+      #omer-social-widget svg {
+
+        display: block !important;
+
+        width: 22px !important;
+        height: 22px !important;
+
+        flex-shrink: 0 !important;
+
+        pointer-events: none !important;
+      }
+
+
+      /* =====================================================
+         WHATSAPP
+         ===================================================== */
+
+      #omer-social-widget .omer-whatsapp {
+
+        position: relative !important;
+
+        width: 48px !important;
+        min-width: 48px !important;
+        max-width: 48px !important;
+
+        height: 48px !important;
+        min-height: 48px !important;
+
+        padding: 0 !important;
+
+        overflow: hidden !important;
+
+        border-radius: 50% !important;
+
+        background: #f4f4f4 !important;
+
+        color: #111 !important;
+
+        border: 1px solid rgba(0, 0, 0, .055) !important;
+
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, .13) !important;
+
+        display: flex !important;
+
+        align-items: center !important;
+
+        justify-content: center !important;
+
+        gap: 0 !important;
+
+        transform: translateZ(0) !important;
+
+        transition:
+          width .38s cubic-bezier(.22, .61, .36, 1),
+          min-width .38s cubic-bezier(.22, .61, .36, 1),
+          max-width .38s cubic-bezier(.22, .61, .36, 1),
+          border-radius .30s ease,
+          background-color .25s ease,
+          box-shadow .25s ease !important;
+      }
+
+
+      /* =====================================================
+         WHATSAPP ICON
+         ===================================================== */
+
+      #omer-social-widget .omer-whatsapp svg {
+
+        position: relative !important;
+
+        z-index: 3 !important;
+
+        width: 23px !important;
+        height: 23px !important;
+
+        flex: 0 0 23px !important;
+
+        display: block !important;
+      }
+
+
+      /* =====================================================
+         WHATSAPP TEXT
+         ===================================================== */
+
+      #omer-social-widget .omer-whatsapp-text {
+
+        position: absolute !important;
+
+        left: 18px !important;
+
+        top: 50% !important;
+
+        transform: translateY(-50%) !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        width: auto !important;
+
+        opacity: 0 !important;
+
+        overflow: hidden !important;
+
+        white-space: nowrap !important;
+
+        pointer-events: none !important;
+
+        color: #111 !important;
+
+        font-size: 13px !important;
+
+        font-weight: 600 !important;
+
+        line-height: 1 !important;
+
+        letter-spacing: 0 !important;
+
+        z-index: 2 !important;
+
+        transition:
+          opacity .18s ease !important;
+      }
+
+
+      /* =====================================================
+         WHATSAPP HOVER
+         ===================================================== */
+
+      #omer-social-widget .omer-whatsapp:hover {
+
+        width: 190px !important;
+
+        min-width: 190px !important;
+
+        max-width: 190px !important;
+
+        height: 48px !important;
+
+        border-radius: 28px !important;
+
+        background: #c9ffc9 !important;
+
+        transform: none !important;
+
+        justify-content: flex-end !important;
+
+        padding-right: 15px !important;
+
+        box-shadow:
+          0 10px 28px rgba(0, 0, 0, .14) !important;
+      }
+
+
+      #omer-social-widget .omer-whatsapp:hover
+      .omer-whatsapp-text {
+
+        opacity: 1 !important;
+      }
+
+
+      /* =====================================================
+         THREE DOT BUTTON
+         ===================================================== */
+
+      #omer-social-widget .omer-dots {
+
+        background: #202020 !important;
+
+        color: #ddd !important;
+
+        transition:
+          transform .25s ease,
+          background-color .25s ease !important;
+      }
+
+
+      #omer-social-widget .omer-dots:hover {
+
+        background: #292929 !important;
+
+        transform: scale(1.06) !important;
+      }
+
+
+      /* =====================================================
+         SOCIAL MENU
+         ===================================================== */
+
+      #omer-social-widget .omer-menu {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: flex-end !important;
+
+        gap: 10px !important;
+
+        max-height: 0 !important;
+
+        opacity: 0 !important;
+
+        overflow: hidden !important;
+
+        pointer-events: none !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: transparent !important;
+        background-color: transparent !important;
+
+        border: none !important;
+
+        box-shadow: none !important;
+
+        filter: none !important;
+
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        transform:
+          translateY(12px)
+          scale(.86) !important;
+
+        transform-origin: bottom right !important;
+
+        transition:
+          max-height .40s cubic-bezier(.22, .61, .36, 1),
+          opacity .25s ease,
+          transform .35s cubic-bezier(.22, .61, .36, 1) !important;
+      }
+
+
+      /* =====================================================
+         MENU OPEN
+         ===================================================== */
+
+      #omer-social-widget.open .omer-menu {
+
+        max-height: 330px !important;
+
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
+
+        transform:
+          translateY(0)
+          scale(1) !important;
+      }
+
+
+      /* =====================================================
+         MENU BUTTON ANIMATION
+         ===================================================== */
+
+      #omer-social-widget .omer-menu-btn {
+
+        opacity: 0 !important;
+
+        transform:
+          translateY(12px)
+          scale(.78) !important;
+      }
+
+
+      #omer-social-widget.open .omer-menu-btn {
+
+        opacity: 1 !important;
+
+        transform:
+          translateY(0)
+          scale(1) !important;
+      }
+
+
+      /* Stagger */
+
+      #omer-social-widget.open
+      .omer-menu-btn:nth-child(1) {
+
+        transition-delay: .03s !important;
+      }
+
+      #omer-social-widget.open
+      .omer-menu-btn:nth-child(2) {
+
+        transition-delay: .07s !important;
+      }
+
+      #omer-social-widget.open
+      .omer-menu-btn:nth-child(3) {
+
+        transition-delay: .11s !important;
+      }
+
+      #omer-social-widget.open
+      .omer-menu-btn:nth-child(4) {
+
+        transition-delay: .15s !important;
+      }
+
+      #omer-social-widget.open
+      .omer-menu-btn:nth-child(5) {
+
+        transition-delay: .19s !important;
+      }
+
+
+      /* =====================================================
+         YOUTUBE
+         ===================================================== */
+
+      #omer-social-widget .omer-youtube {
+
+        background: #ffb8bd !important;
+
+        color: #111 !important;
+      }
+
+
+      /* =====================================================
+         INSTAGRAM
+         ===================================================== */
+
+      #omer-social-widget .omer-instagram {
+
+        background: #ffe9aa !important;
+
+        color: #111 !important;
+      }
+
+
+      /* =====================================================
+         WEBSITE / GLOBE
+         ===================================================== */
+
+      #omer-social-widget .omer-website {
+
+        background: #aebeff !important;
+
+        color: #111 !important;
+      }
+
+
+      /* =====================================================
+         CONNECT / LINK
+         ===================================================== */
+
+      #omer-social-widget .omer-connect {
+
+        background: #e7ace7 !important;
+
+        color: #111 !important;
+      }
+
+
+      /* =====================================================
+         CLOSE
+         ===================================================== */
+
+      #omer-social-widget .omer-close {
+
+        background: #9d9d9d !important;
+
+        color: #fff !important;
+      }
+
+
+      #omer-social-widget .omer-close:hover {
+
+        background: #858585 !important;
+      }
+
+
+      /* =====================================================
+         MOBILE
+         ===================================================== */
+
+      @media (max-width: 600px) {
+
+        #omer-social-widget {
+
+          right: 15px !important;
+
+          bottom: 15px !important;
+        }
+
+
+        #omer-social-widget .omer-btn {
+
+          width: 46px !important;
+          height: 46px !important;
+
+          min-width: 46px !important;
+          min-height: 46px !important;
+        }
+
+
+        #omer-social-widget .omer-whatsapp {
+
+          width: 46px !important;
+          min-width: 46px !important;
+          max-width: 46px !important;
+
+          height: 46px !important;
+        }
+
+
+        #omer-social-widget .omer-whatsapp svg {
+
+          width: 21px !important;
+          height: 21px !important;
+
+          flex-basis: 21px !important;
+        }
+
+
+        #omer-social-widget .omer-whatsapp:hover {
+
+          width: min(180px, calc(100vw - 30px)) !important;
+
+          min-width: min(180px, calc(100vw - 30px)) !important;
+
+          max-width: min(180px, calc(100vw - 30px)) !important;
+
+          height: 46px !important;
+
+          padding-right: 13px !important;
+        }
+
+
+        #omer-social-widget .omer-whatsapp-text {
+
+          left: 15px !important;
+
+          font-size: 12px !important;
+        }
+
+      }
+
+
+      /* =====================================================
+         VERY SMALL PHONES
+         ===================================================== */
+
+      @media (max-width: 360px) {
+
+        #omer-social-widget {
+
+          right: 10px !important;
+
+          bottom: 10px !important;
+        }
+
+
+        #omer-social-widget .omer-whatsapp:hover {
+
+          width: calc(100vw - 20px) !important;
+
+          min-width: calc(100vw - 20px) !important;
+
+          max-width: calc(100vw - 20px) !important;
+        }
+
+      }
+
+
+      /* =====================================================
+         REDUCED MOTION
+         ===================================================== */
+
+      @media (prefers-reduced-motion: reduce) {
+
+        #omer-social-widget *,
+        #omer-social-widget *::before,
+        #omer-social-widget *::after {
+
+          transition: none !important;
+
+          animation: none !important;
+        }
+      }
+
+    `;
+
+    document.head.appendChild(style);
+
+
+    /* =======================================================
+       ICONS
+       ======================================================= */
+
+    const ICON = {
+
+      dots: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="5" cy="12" r="2" fill="currentColor"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+          <circle cx="19" cy="12" r="2" fill="currentColor"/>
+        </svg>
+      `,
+
+
+      whatsapp: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path
+            fill="currentColor"
+            d="M20.52 3.48A11.88 11.88 0 0 0 12.05 0
+            C5.48 0 .13 5.35.13 11.92
+            c0 2.1.55 4.15 1.59 5.96
+            L.04 24l6.27-1.64
+            a11.9 11.9 0 0 0 5.74 1.47h.01
+            c6.57 0 11.92-5.35 11.92-11.92
+            0-3.19-1.24-6.19-3.46-8.43ZM12.06 21.78h-.01
+            a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.72.98
+            .99-3.63-.23-.37a9.83 9.83 0 0 1-1.51-5.26
+            C2.2 6.49 6.62 2.06 12.05 2.06
+            c2.63 0 5.1 1.03 6.96 2.89
+            a9.82 9.82 0 0 1 2.88 6.97
+            c0 5.44-4.42 9.86-9.83 9.86Zm5.4-7.39
+            c-.3-.15-1.77-.87-2.04-.97
+            -.27-.1-.47-.15-.67.15
+            -.2.3-.77.97-.94 1.17
+            -.17.2-.35.22-.65.07
+            -.3-.15-1.25-.46-2.38-1.47
+            -.88-.78-1.47-1.75-1.64-2.05
+            -.17-.3-.02-.46.13-.61
+            .13-.13.3-.35.45-.52
+            .15-.17.2-.3.3-.5
+            .1-.2.05-.37-.02-.52
+            -.07-.15-.67-1.61-.92-2.21
+            -.24-.58-.49-.5-.67-.51
+            h-.57c-.2 0-.52.07-.79.37
+            -.27.3-1.04 1.02-1.04 2.49
+            s1.07 2.89 1.22 3.09
+            c.15.2 2.1 3.2 5.08 4.49
+            .71.31 1.27.49 1.7.63
+            .71.23 1.36.2 1.87.12
+            .57-.09 1.77-.72 2.02-1.42
+            .25-.7.25-1.3.17-1.42
+            -.07-.12-.27-.2-.57-.35Z"/>
+
+        </svg>
+      `,
+
+
+      youtube: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path
+            fill="currentColor"
+            d="M23.5 6.2a3 3 0 0 0-2.11-2.12
+            C19.52 3.5 12 3.5 12 3.5
+            s-7.52 0-9.39.58
+            A3 3 0 0 0 .5 6.2
+            31.3 31.3 0 0 0 0 12
+            a31.3 31.3 0 0 0 .5 5.8
+            3 3 0 0 0 2.11 2.12
+            C4.48 20.5 12 20.5 12 20.5
+            s7.52 0 9.39-.58
+            A3 3 0 0 0 23.5 17
+            a31.3 31.3 0 0 0 .5-5
+            31.3 31.3 0 0 0-.5-5.8ZM9.6 15.7V8.3
+            l6.3 3.7-6.3 3.7Z"/>
+
+        </svg>
+      `,
+
+
+      instagram: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+          <circle
+            cx="17.5"
+            cy="6.5"
+            r="1.3"
+            fill="currentColor"/>
+
+        </svg>
+      `,
+
+
+      globe: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+
+          <path
+            d="
+              M3 12h18
+              M12 3
+              c2.5 2.5 3.7 5.5 3.7 9
+              S14.5 18.5 12 21
+              M12 3
+              c-2.5 2.5-3.7 5.5-3.7 9
+              S9.5 18.5 12 21
+            "
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"/>
+
+        </svg>
+      `,
+
+
+      link: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path
+            d="
+              M10.6 13.4
+              a4.1 4.1 0 0 0 5.8 0
+              l2-2
+              a4.1 4.1 0 0 0-5.8-5.8
+              l-1.15 1.15
+            "
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"/>
+
+          <path
+            d="
+              M13.4 10.6
+              a4.1 4.1 0 0 0-5.8 0
+              l-2 2
+              a4.1 4.1 0 0 0 5.8 5.8
+              l1.15-1.15
+            "
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"/>
+
+        </svg>
+      `,
+
+
+      close: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path
+            d="M6 6l12 12M18 6L6 18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"/>
+
+        </svg>
+      `
+    };
+
+
+
+    const widget = document.createElement("div");
+
+    widget.id = "omer-social-widget";
+
+
+    widget.innerHTML = `
+
+      <div class="omer-widget-inner">
+
+
+        <!-- ===============================================
+             WHATSAPP
+             =============================================== -->
+
+        <a
+          class="omer-btn omer-whatsapp"
+          href="${LINKS.whatsapp}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat With Us Now"
+        >
+
+          <span class="omer-whatsapp-text">
+            Chat With Us Now
+          </span>
+
+          ${ICON.whatsapp}
+
+        </a>
+
+
+        <!-- ===============================================
+             SOCIAL MENU
+             =============================================== -->
+
+        <div class="omer-menu">
+
+
+          <!-- YOUTUBE -->
+
+          <a
+            class="omer-btn omer-menu-btn omer-youtube"
+            href="${LINKS.youtube}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+
+            ${ICON.youtube}
+
+          </a>
+
+
+          <!-- INSTAGRAM -->
+
+          <a
+            class="omer-btn omer-menu-btn omer-instagram"
+            href="${LINKS.instagram}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+
+            ${ICON.instagram}
+
+          </a>
+
+
+          <!-- WEBSITE -->
+
+          <a
+            class="omer-btn omer-menu-btn omer-website"
+            href="${LINKS.website}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Website"
+          >
+
+            ${ICON.globe}
+
+          </a>
+
+
+          <!-- CONNECT -->
+
+          <a
+            class="omer-btn omer-menu-btn omer-connect"
+            href="${LINKS.connect}"
+            aria-label="Connect"
+          >
+
+            ${ICON.link}
+
+          </a>
+
+
+          <!-- CLOSE -->
+
+          <button
+            class="omer-btn omer-menu-btn omer-close"
+            type="button"
+            aria-label="Close social menu"
+          >
+
+            ${ICON.close}
+
+          </button>
+
+
+        </div>
+
+
+        <!-- ===============================================
+             THREE DOTS
+             =============================================== -->
+
+        <button
+          class="omer-btn omer-dots"
+          type="button"
+          aria-label="Open social menu"
+          aria-expanded="false"
+        >
+
+          ${ICON.dots}
+
+        </button>
+
+
+      </div>
+    `;
+
+
+
+    document.body.appendChild(widget);
+
+
+
+    const dots =
+      widget.querySelector(".omer-dots");
+
+    const close =
+      widget.querySelector(".omer-close");
+
+
+    
+
+    dots.addEventListener("click", function (event) {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const isOpen =
+        widget.classList.toggle("open");
+
+      dots.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+
+    });
+
+
+    close.addEventListener("click", function (event) {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      widget.classList.remove("open");
+
+      dots.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    });
+
+
+    /* =======================================================
+       CLICK OUTSIDE = CLOSE
+       ======================================================= */
+
+    document.addEventListener("click", function (event) {
+
+      if (
+        widget.classList.contains("open") &&
+        !widget.contains(event.target)
+      ) {
+
+        widget.classList.remove("open");
+
+        dots.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    });
+
+
+
+    document.addEventListener("keydown", function (event) {
+
+      if (
+        event.key === "Escape" &&
+        widget.classList.contains("open")
+      ) {
+
+        widget.classList.remove("open");
+
+        dots.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    });
+
+  }
+
+
+
+
+  if (document.readyState === "loading") {
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      initOmerSocialWidget
+    );
+
+  } else {
+
+    initOmerSocialWidget();
+
+  }
+
+})();
+</script>
