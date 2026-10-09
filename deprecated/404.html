@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="images/favicon-removebg-preview.png" rel="icon" type="image/png">
+    <link href="images/favicon-removebg-preview.png" rel="shortcut icon">
+    <title>404 | Omer4K</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 110%/1.5 system-ui, sans-serif;
+            background: #131417;
+            color: white;
+            height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+        }
+
+        main {
+            max-width: 350px;
+        }
+
+        a {
+            color: #56BBF9;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1 data-test-id="text-404">404</h1>
+        <h2 id="headline"></h2>
+        <p id="message" aria-live="polite"></p>
+        <ul>
+            <li>
+                <a href="https://omer4k.com">Go back to OMER4K.COM</a>
+            </li>
+        </ul>
+    </main>
+
+    <script>
+        const messages = [
+            {
+                headline: "Congratulations, Genius. 💀",
+                message: "You've managed to find a page that doesn't exist. Impressive. Truly. Maybe it was deleted, maybe the link is broken, or maybe the internet saw you coming and decided to protect itself. Either way, refreshing won't fix your life choices."
+            },
+            {
+                headline: "It Works on My Machine. 🧑‍💻",
+                message: "The page has either disappeared, never existed, or been sacrificed to the ancient gods of bad deployment practices. Our developer says everything is fine. Our developer is also the reason you're here."
+            },
+            {
+                headline: "Your Confidence Exceeds Your Accuracy. 🧠",
+                message: "You confidently clicked a link. The link confidently betrayed you. Now we're both questioning your decision-making abilities. Don't worry—this happens to the best of us. And apparently, to you."
+            },
+            {
+                headline: "This Page Never Existed. Neither Did Your Chances. 🫠",
+                message: "You searched. You clicked. You hoped. And now you're staring into a digital void. Somewhere, a developer is crying. Perhaps the real page was the mistakes you made along the way."
+            },
+            {
+                headline: "Certified Skill Issue. 🗿",
+                message: "The page isn't hiding. It isn't loading. And no, your Wi-Fi probably isn't the problem. You simply clicked something that doesn't exist. It's okay—we won't tell anyone. Your browser history, however, has filed a report."
+            },
+            {
+                headline: "I Literally Cannot Find It. 🤖",
+                message: "I've searched the database, checked the routes, questioned my existence, and considered switching careers. After all that computational suffering, I have one message for you: THERE IS NO PAGE HERE. Please stop looking at me like I did this on purpose."
+            },
+            {
+                headline: "Somewhere, a Junior Developer Is Sweating. 😰",
+                message: "The page should be here. The documentation says so. The documentation is six months old, the developer left three months ago, and Git contains 47 branches named final-final-FINAL. Somehow, you're the one paying the price."
+            },
+            {
+                headline: "Oh, You Thought This Would Work? 🤡",
+                message: "That's adorable. You followed a link expecting a functional website. What an optimistic little human you are. We admire your faith in technology. We really do. Unfortunately, this page is missing."
+            },
+            {
+                headline: "The Page Has Left the Chat. 👻",
+                message: "Gone. Vanished. Reduced to digital atoms. We held a funeral, but nobody attended because the invitation link was broken, too. The cause of death remains unknown. The developer has declined to comment."
+            },
+            {
+                headline: "We Apologize for the Inconvenience. (We Don't.) 🏢",
+                message: "We pride ourselves on seamless digital experiences. Unfortunately, this isn't one. The resource is unavailable due to circumstances that may or may not involve incompetence. Our team is investigating. By 'our team,' we mean a developer who just Googled the error."
+            },
+            {
+                headline: "You Weren't Supposed to Be Here. 👀",
+                message: "Interesting. This page doesn't exist, yet somehow you've found your way here. We're not saying you're lost. We're saying that if this were a movie, the background music would have stopped by now. Please proceed carefully. Or don't. We're a website, not your parents."
+            },
+            {
+                headline: "Well, Shit. 🤦",
+                message: "The page is gone. The link is broken. And somehow, you're still here. We respect the commitment. Honestly, at this point, you're putting more effort into finding this page than we put into maintaining it."
+            },
+            {
+                headline: "The Audacity. 😭",
+                message: "You expected a working page? On this website? That's on you, honestly. The page you're looking for doesn't exist. Please adjust your expectations accordingly."
+            },
+            {
+                headline: "Mission Failed Successfully. 🎮",
+                message: "You clicked. We failed. The internet is disappointed in both of us. Take a deep breath, accept the defeat, and respawn at the homepage."
+            },
+            {
+                headline: "Touch Grass. 🌱",
+                message: "This page doesn't exist. You've spent enough time looking for it. Go outside. Hydrate. Reconsider your choices. The page will still not exist when you get back."
+            },
+            {
+                headline: "It's Not You. It's the URL. ❤️",
+                message: "Actually, no. It might be you. We've checked the server, the routes, and the developer's Git history. The only thing we haven't checked is your decision-making process—and that's outside our scope."
+            },
+            {
+                headline: "Please Stop Making It Weird. 🫡",
+                message: "There is no page here. No secret content. No hidden treasure. Just a 404 and a website politely asking you to stop poking the empty space."
+            },
+            {
+                headline: "Error 404: Expectations Not Found. 📉",
+                message: "Your request arrived full of hope. Unfortunately, the page did not. We regret to inform you that your journey ends here, unless you count clicking the homepage link as character development."
+            },
+            {
+                headline: "The Server Is Fine. Your Link? Not So Much. 🔗",
+                message: "Everything is under control. Except this URL. This URL has made several questionable life choices and is no longer welcome here."
+            },
+            {
+                headline: "Even Google Couldn't Save You. 🔎",
+                message: "You made it all the way here and still found nothing. That's not a search result; that's a side quest with no reward. Try the homepage before this becomes a documentary."
+            }
+        ];
+
+        const storageKey = "omer4k-last-404-message";
+        let previousIndex = -1;
+
+        try {
+            previousIndex = Number.parseInt(localStorage.getItem(storageKey), 10);
+            if (Number.isNaN(previousIndex)) previousIndex = -1;
+        } catch (_) {
+            // Continue without storage if it is unavailable.
+        }
+
+        let nextIndex = Math.floor(Math.random() * messages.length);
+
+        if (messages.length > 1) {
+            while (nextIndex === previousIndex) {
+                nextIndex = Math.floor(Math.random() * messages.length);
+            }
+        }
+
+        document.getElementById("headline").textContent = messages[nextIndex].headline;
+        document.getElementById("message").textContent = messages[nextIndex].message;
+
+        try {
+            localStorage.setItem(storageKey, String(nextIndex));
+        } catch (_) {
+            // Random messages still work if storage is unavailable.
+        }
+    </script>
+</body>
+
+</html>
